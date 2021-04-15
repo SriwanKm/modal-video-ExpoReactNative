@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
     TouchableHighlight,
     ImageBackground,
@@ -12,7 +12,7 @@ import {
     Pressable,
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
-import { Video } from 'expo-av';
+import {Video} from 'expo-av';
 
 
 const image = {uri: "https://www.html.am/templates/downloads/bryantsmith/anoceanofsky/anoceanofsky.jpg"};
@@ -41,7 +41,8 @@ export default function App() {
                     ]}
                     renderItem={({item}) => (
                         <View style={styles.navItem}>
-                            <TouchableHighlight underlayColor="#fff" onPress={pressed}>
+                            <TouchableHighlight underlayColor="#fff"
+                                                onPress={item.key === 'Play Video' ? () => setModalVisible(true) : pressed}>
                                 <Text style={styles.navText}>{item.key}</Text>
                             </TouchableHighlight>
                         </View>
@@ -98,14 +99,14 @@ export default function App() {
                     </View>
 
 
-                        {/*<View style={styles.buttons}>*/}
-                        {/*    <Button*/}
-                        {/*        title={status.isPlaying ? 'Pause' : 'Play'}*/}
-                        {/*        onPress={() =>*/}
-                        {/*            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()*/}
-                        {/*        }*/}
-                        {/*    />*/}
-                        {/*</View>*/}
+                    {/*<View style={styles.buttons}>*/}
+                    {/*    <Button*/}
+                    {/*        title={status.isPlaying ? 'Pause' : 'Play'}*/}
+                    {/*        onPress={() =>*/}
+                    {/*            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()*/}
+                    {/*        }*/}
+                    {/*    />*/}
+                    {/*</View>*/}
                 </ImageBackground>
 
                 <LinearGradient
