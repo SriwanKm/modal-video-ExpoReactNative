@@ -63,25 +63,22 @@ export default function App() {
                 />
             </LinearGradient>
             <View style={styles.line}/>
-            <LinearGradient colors={['#eb8600', '#4f2108', '#26070a']} style={styles.sectionCon}>
+            <LinearGradient colors={['#053b7e', '#014c5c', '#014c5c']} style={styles.sectionCon}>
 
-                <ImageBackground source={image} style={isPortrait() ? styles.imgP : styles.img}>
+                <ImageBackground source={image} style={styles.img}>
                     <Text style={styles.header}>An Ocean of Sky</Text>
                     <Text style={styles.subHeader}>An XHTML 1.0 Strict Template by Bryant Smith</Text>
                 </ImageBackground>
 
                 <LinearGradient
-                    colors={isPortrait() ? ['#fed5ac', '#eb8600'] : ['#fed5ac', '#ffffff', '#ffffff', '#ffffff']}
-                    style={isPortrait() ? styles.sectionP : styles.section}>
+                    colors={['#e5eefc', '#ffffff', '#ffffff', '#ffffff']}
+                    style={styles.section}>
                     <View style={styles.subSection}>
                         <Text style={styles.sectionHeader}>The Title of an Article</Text>
                         <Text style={styles.p}>
                             You may use this template on any site, anywhere, for free just please leave the link back to
                             me
                             in the footer. This template validates XHTML Strict 1.0, CSS Validates as well; enjoy :)
-                            <TouchableOpacity>
-                                <Text style={styles.link}>This is what a link looks like.</Text>
-                            </TouchableOpacity>
                         </Text>
 
                         <Text style={styles.p}>
@@ -92,20 +89,22 @@ export default function App() {
                             risus
                             ut felis. Sed vehicula pellentesque quam.
                         </Text>
-                        <View style={isPortrait() ? styles.dottedBoxP : styles.dottedBox}>
-                            <Text style={styles.p}>
-                                This is a block quote, use it to include quotes from yourself or others. All you have to
-                                do to include this element is wrap some text around blockquote tags
-                            </Text>
-                        </View>
+                        <Text style={styles.p}>
+                            Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue
+                            tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh,
+                            dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque
+                            venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent
+                            taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue,
+                            turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.
+                        </Text>
                     </View>
 
                     <View style={styles.subSection}>
-                        <Text style={styles.sectionHeader}>Titles are H1 Tags</Text>
+                        <Text style={styles.sectionHeader}>So Many Titles, So Little Time.</Text>
                         <Text style={styles.p}>
-                            Since the titles are H1 tags, try to include your keywords in them as search engines will
-                            look
-                            at them as being important content.
+                            You may use this template on any site, anywhere, for free just please leave the link back to
+                            me
+                            in the footer. This template validates XHTML Strict 1.0, CSS Validates as well; enjoy :)
                         </Text>
 
                         <Text style={styles.p}>
@@ -116,17 +115,13 @@ export default function App() {
                             risus
                             ut felis. Sed vehicula pellentesque quam.
                         </Text>
-
                         <Text style={styles.p}>
                             Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue
-                            tortor,
-                            tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh, dapibus
-                            quis,
-                            laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque venenatis urna.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent taciti sociosqu ad
-                            litora
-                            torquent per conubia nostra, per inceptos himenaeos. Fusce congue, turpis ut commodo mattis,
-                            pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.
+                            tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh,
+                            dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque
+                            venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent
+                            taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue,
+                            turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.
                         </Text>
                     </View>
 
@@ -146,19 +141,14 @@ export default function App() {
                             risus
                             ut felis. Sed vehicula pellentesque quam.
                         </Text>
-
                         <Text style={styles.p}>
                             Vestibulum augue quam, interdum id, congue semper, convallis non, velit. Quisque augue
-                            tortor,
-                            tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh, dapibus
-                            quis,
-                            laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque venenatis urna.
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent taciti sociosqu ad
-                            litora
-                            torquent per conubia nostra, per inceptos himenaeos. Fusce congue, turpis ut commodo mattis,
-                            pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.
+                            tortor, tristique ac, scelerisque eget, aliquam id, sem. Aenean lorem. Fusce velit nibh,
+                            dapibus quis, laoreet nec, porta a, dui. Nullam ac urna. Proin eget elit. Nunc scelerisque
+                            venenatis urna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Class aptent
+                            taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce congue,
+                            turpis ut commodo mattis, pede erat fringilla tellus, pulvinar suscipit odio lorem sed pede.
                         </Text>
-
                     </View>
                 </LinearGradient>
             </LinearGradient>
@@ -186,7 +176,7 @@ const styles = StyleSheet.create({
     },
     navText: {
         flex: 1,
-        color: '#c5d8f1',
+        color: '#d7eaff',
         fontSize: 16,
         fontWeight: 'bold',
         paddingHorizontal: 20,
@@ -202,74 +192,44 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         marginHorizontal: 20,
         marginBottom: 20,
-        paddingBottom: 360,
-    },
-    imgP: {
-        borderColor: '#fff',
-        borderWidth: 10,
-        borderTopWidth: 0,
-        marginBottom: 20,
-        paddingBottom: 120,
+        paddingBottom: 250,
     },
     header: {
-        color: '#ffffff',
+        color: '#fff',
         fontWeight: 'bold',
         fontSize: 26,
         marginHorizontal: 20,
         paddingTop: 12,
     },
     subHeader: {
-        color: '#000000',
-        fontSize: 18,
+        color: '#eaf0fc',
+        fontSize: 15,
         marginHorizontal: 20,
         paddingBottom: 12,
+        paddingLeft: 10,
     },
     line: {
         borderTopColor: '#fff',
         borderTopWidth: 10,
     },
     sectionCon: {},
-    link: {
-        color: '#ca740d',
-        fontWeight: 'bold',
-        fontSize: 16,
-    },
-    dottedBox: {
-        borderColor: '#c97003',
-        borderWidth: 1,
-        margin: 20,
-        padding: 15,
-        borderStyle: 'dashed',
-        width: '70%',
-    },
-    dottedBoxP: {
-        borderColor: '#000000',
-        borderWidth: 1,
-        marginHorizontal: 5,
-        marginVertical: 20,
-        padding: 15,
-        borderStyle: 'dashed',
-    },
     section: {
-        borderColor: '#000000',
+        borderColor: '#fff',
         borderWidth: 9,
         margin: 20,
         paddingHorizontal: 10,
     },
-    sectionP: {
-        paddingHorizontal: 10,
-    },
     subSection: {
-        padding: 12,
+        paddingHorizontal: 12,
     },
     sectionHeader: {
         fontWeight: 'bold',
         fontSize: 26,
-        marginBottom: 8,
+        marginTop: 10,
     },
     p: {
         fontSize: 16,
-        marginVertical: 10,
+        marginBottom: 20,
         lineHeight: 25,
     },
 });
