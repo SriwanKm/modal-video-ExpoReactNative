@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {
     TouchableHighlight,
-    TouchableOpacity,
     ImageBackground,
     ScrollView,
     StyleSheet,
     Text,
     View,
     FlatList,
-    Button,
     Alert,
     Modal,
     Pressable,
@@ -232,8 +230,8 @@ const styles = StyleSheet.create({
         borderTopWidth: 0,
         marginHorizontal: 20,
         marginBottom: 20,
-        // paddingBottom: 120,
-        paddingBottom: 200,
+        paddingBottom: 120,
+        // paddingBottom: 200,
 
     },
     header: {
@@ -294,9 +292,10 @@ const styles = StyleSheet.create({
         marginTop: 22
     },
     modalView: {
-        // margin: 20,
+        marginHorizontal: 20,
+        marginTop: 175,
         backgroundColor: "#000",
-        padding: 9,
+        padding: 10,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -308,6 +307,7 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     button: {
+        marginTop: 10,
         borderRadius: 20,
         padding: 10,
         elevation: 2,
