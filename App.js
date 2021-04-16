@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     TouchableHighlight,
     ImageBackground,
@@ -10,14 +10,34 @@ import {
     Alert,
     Modal,
     Pressable,
+    Dimensions,
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import {Video} from 'expo-av';
 
 
 const image = {uri: "https://www.html.am/templates/downloads/bryantsmith/anoceanofsky/anoceanofsky.jpg"};
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 
 export default function App() {
+    const [dimensions, setDimensions] = useState({window, screen});
+    const onChange = ({window, screen}) => {
+        setDimensions({window, screen});
+    };
+
+    useEffect(() => {
+        Dimensions.addEventListener('change', onChange);
+        return () => {
+            Dimensions.removeEventListener('change', onChange);
+        };
+    });
+
+    const isPortrait = () => {
+        return dimensions.screen.height > dimensions.screen.width
+    }
+
+
     const video = React.useRef(null);
     const [status, setStatus] = React.useState({});
     const pressed = () => {
@@ -52,12 +72,13 @@ export default function App() {
             <View style={styles.line}/>
             <LinearGradient colors={['#053b7e', '#014c5c', '#014c5c']} style={styles.sectionCon}>
 
-                <ImageBackground source={image} style={styles.img}>
+                <ImageBackground source={image} style={isPortrait() ? styles.imgP : styles.img}>
                     <Text style={styles.header}>An Ocean of Sky</Text>
                     <Text style={styles.subHeader}>An XHTML 1.0 Strict Template by Bryant Smith</Text>
 
-                    <View style={styles.centeredView}>
+                    <View style={isPortrait() ? styles.centeredViewP : styles.centeredView}>
                         <Modal
+                            supportedOrientations={['portrait', 'landscape']}
                             animationType="slide"
                             transparent={true}
                             visible={modalVisible}
@@ -66,12 +87,12 @@ export default function App() {
                                 setModalVisible(!modalVisible);
                             }}
                         >
-                            <View style={styles.centeredView}>
+                            <View style={isPortrait() ? styles.centeredViewP : styles.centeredView}>
 
-                                <View style={styles.modalView}>
+                                <View style={isPortrait() ? styles.modalViewP : styles.modalView}>
                                     <Video
                                         ref={video}
-                                        style={styles.video}
+                                        style={isPortrait() ? styles.videoP : styles.video}
                                         source={{
                                             uri: 'https://player.vimeo.com/external/386628887.hd.mp4?s=ae3df9c72e0a7101078c7fcfd303be25802b377a&profile_id=174',
                                         }}
@@ -98,15 +119,6 @@ export default function App() {
                         </Pressable>
                     </View>
 
-
-                    {/*<View style={styles.buttons}>*/}
-                    {/*    <Button*/}
-                    {/*        title={status.isPlaying ? 'Pause' : 'Play'}*/}
-                    {/*        onPress={() =>*/}
-                    {/*            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()*/}
-                    {/*        }*/}
-                    {/*    />*/}
-                    {/*</View>*/}
                 </ImageBackground>
 
                 <LinearGradient
@@ -225,15 +237,21 @@ const styles = StyleSheet.create({
     navItem: {
         marginHorizontal: 15,
     },
-    img: {
+    imgP: {
         borderColor: '#fff',
         borderWidth: 10,
         borderTopWidth: 0,
         marginHorizontal: 20,
         marginBottom: 20,
         paddingBottom: 120,
-        // paddingBottom: 200,
-
+    },
+    img: {
+        borderColor: '#fff',
+        borderWidth: 10,
+        borderTopWidth: 0,
+        marginHorizontal: 20,
+        marginBottom: 20,
+        paddingBottom: 200,
     },
     header: {
         color: '#fff',
@@ -249,13 +267,16 @@ const styles = StyleSheet.create({
         paddingBottom: 12,
         paddingLeft: 10,
     },
-    video: {
+    videoP: {
         alignSelf: 'center',
-        // width: 600,
-        // height: 350,
         width: 330,
         height: 185,
 
+    },
+    video: {
+        alignSelf: 'center',
+        width: 560,
+        height: 320,
     },
     buttons: {
         flexDirection: 'row',
@@ -286,25 +307,29 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         lineHeight: 25,
     },
-    centeredView: {
+    centeredViewP: {
         flex: 1,
-        // justifyContent: "center",
         alignItems: "center",
         marginTop: 22
     },
-    modalView: {
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    modalViewP: {
         marginHorizontal: 20,
         marginTop: 175,
         backgroundColor: "#000",
         padding: 10,
         alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
+        elevation: 5
+    },
+    modalView: {
+        marginHorizontal: 20,
+        backgroundColor: "#000",
+        padding: 10,
+        alignItems: "center",
         elevation: 5
     },
     button: {
@@ -313,7 +338,6 @@ const styles = StyleSheet.create({
         padding: 10,
         elevation: 2,
         backgroundColor: "#ffffff",
-
     },
     textStyle: {
         color: "#0072ff",
